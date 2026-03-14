@@ -28,7 +28,7 @@ function AdminMockup() {
         </span>
       </div>
 
-      <div className="grid grid-cols-4 gap-px border-b border-white/[0.06] bg-white/[0.03]">
+      <div className="grid grid-cols-2 gap-px border-b border-white/[0.06] bg-white/[0.03] sm:grid-cols-4">
         {analytics.mockup.metrics.map((m) => (
           <div key={m.label} className="px-3 py-3 text-center sm:px-4">
             <div className="text-base font-bold text-white sm:text-lg">{m.value}</div>

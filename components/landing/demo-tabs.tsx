@@ -63,21 +63,21 @@ export function DemoTabs() {
       onMouseLeave={() => setPaused(false)}
       className="relative isolate overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.02)] backdrop-blur-xl ring-1 ring-white/50"
     >
-      <div className="flex items-center justify-between border-b border-slate-100 bg-white/50 px-4 py-3">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between gap-2 border-b border-slate-100 bg-white/50 px-3 py-2.5 sm:px-4 sm:py-3">
+        <div className="hidden items-center gap-2 sm:flex">
           <div className="flex gap-1.5">
             <span className="size-2.5 rounded-full bg-slate-200" />
             <span className="size-2.5 rounded-full bg-slate-200" />
             <span className="size-2.5 rounded-full bg-slate-200" />
           </div>
         </div>
-        <div className="flex gap-1 rounded-lg bg-slate-100/50 p-1 ring-1 ring-slate-200/50">
+        <div className="flex w-full gap-0.5 overflow-x-auto rounded-lg bg-slate-100/50 p-1 ring-1 ring-slate-200/50 sm:w-auto sm:gap-1">
           {demoScenarios.map((s, i) => (
             <button
               key={s.tab}
               onClick={() => selectTab(i)}
               className={cn(
-                "relative overflow-hidden rounded-md px-3 py-1 text-[11px] font-medium transition-all",
+                "relative shrink-0 overflow-hidden rounded-md px-2.5 py-1 text-[11px] font-medium transition-all sm:px-3",
                 i === activeTab
                   ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200"
                   : "text-slate-500 hover:text-slate-700"
@@ -120,7 +120,7 @@ export function DemoTabs() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="grid gap-4 bg-slate-50/50 px-4 py-4 sm:grid-cols-2"
+          className="grid gap-3 bg-slate-50/50 px-3 py-3 sm:grid-cols-2 sm:gap-4 sm:px-4 sm:py-4"
         >
           <div className="flex flex-col gap-2">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">

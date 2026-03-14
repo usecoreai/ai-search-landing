@@ -43,13 +43,13 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-x-6 gap-y-2.5 pt-5">
+            <div className="flex flex-col gap-2.5 pt-5 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2.5">
               {hero.trustStrip.map((item) => (
                 <span
                   key={item}
-                  className="flex items-center gap-2 text-[14px] text-slate-500"
+                  className="flex items-center gap-2 text-[13px] text-slate-500 sm:text-[14px]"
                 >
-                  <Check className="size-4 text-blue-500" />
+                  <Check className="size-4 shrink-0 text-blue-500" />
                   {item}
                 </span>
               ))}
