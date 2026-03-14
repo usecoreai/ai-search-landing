@@ -20,11 +20,9 @@ export function HowItWorks() {
 
         <div className="relative grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           <div
-            className="pointer-events-none absolute top-6 right-0 left-0 hidden lg:block"
+            className="pointer-events-none absolute top-6 left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] hidden h-px bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 lg:block"
             aria-hidden="true"
-          >
-            <div className="mx-[calc(12.5%+24px)] h-px bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200" />
-          </div>
+          />
 
           {howItWorks.steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.1}>
