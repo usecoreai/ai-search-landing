@@ -2,9 +2,10 @@ import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { TrustBand } from "@/components/landing/trust-band";
 import { IntegrationModes } from "@/components/landing/integration-modes";
+import { Analytics } from "@/components/landing/analytics";
 import { Capabilities } from "@/components/landing/capabilities";
 import { HowItWorks } from "@/components/landing/how-it-works";
-import { WhyUs } from "@/components/landing/why-us";
+import { Team } from "@/components/landing/team";
 import { Integration } from "@/components/landing/integration";
 import { Results } from "@/components/landing/results";
 import { FAQ } from "@/components/landing/faq";
@@ -19,9 +20,10 @@ export default function Home() {
         <Hero />
         <TrustBand />
         <IntegrationModes />
+        <Analytics />
         <Capabilities />
         <HowItWorks />
-        <WhyUs />
+        <Team />
         <Integration />
         <Results />
         <FAQ />

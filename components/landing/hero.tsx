@@ -10,9 +10,7 @@ const { hero } = landingContent;
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pt-32 pb-20 md:pt-40 md:pb-28">
-      <div className="pointer-events-none absolute -top-40 right-[-10%] h-[600px] w-[600px] rounded-full bg-blue-100/60 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-20 left-[-5%] h-[400px] w-[400px] rounded-full bg-violet-100/40 blur-[100px]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-50/80 blur-[80px]" />
+      <div className="pointer-events-none absolute -top-32 right-[-5%] h-[500px] w-[500px] rounded-full bg-blue-50/80 blur-[100px]" />
 
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-16 lg:px-8">
         <FadeIn direction="up">
