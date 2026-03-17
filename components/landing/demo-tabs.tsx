@@ -126,7 +126,7 @@ export function DemoTabs() {
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
               Обычный поиск
             </span>
-            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm">
+            <div className="flex min-h-[120px] flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm sm:min-h-[160px]">
               {scenario.oldResults.items.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -175,7 +175,7 @@ export function DemoTabs() {
               {BRAND_NAME}
             </span>
 
-            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-[#5B5BD6]/15 bg-white p-3 shadow-[0_4px_12px_-4px_rgba(91,91,214,0.1)] ring-2 ring-[#5B5BD6]/5">
+            <div className="flex min-h-[120px] flex-col gap-2 rounded-xl border border-[#5B5BD6]/15 bg-white p-3 shadow-[0_4px_12px_-4px_rgba(91,91,214,0.1)] ring-2 ring-[#5B5BD6]/5 sm:min-h-[160px]">
               {scenario.aiResults.items.map((item, i) => (
                 <motion.div
                   key={i}

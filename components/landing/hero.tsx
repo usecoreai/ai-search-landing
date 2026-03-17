@@ -19,7 +19,7 @@ export function Hero() {
               {hero.eyebrow}
             </span>
 
-            <h1 className="text-[1.65rem] leading-[1.2] font-bold tracking-tight text-[#151515] sm:text-[2rem] lg:text-[2.25rem]">
+            <h1 className="text-[1.5rem] leading-[1.2] font-bold tracking-tight text-[#151515] sm:text-[2rem] lg:text-[2.25rem]">
               {hero.h1}
             </h1>
 
