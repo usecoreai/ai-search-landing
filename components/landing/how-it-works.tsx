@@ -27,7 +27,7 @@ export function HowItWorks() {
                     {step.number}
                   </span>
                   {i < howItWorks.steps.length - 1 && (
-                    <div className="hidden h-px flex-1 bg-gradient-to-r from-blue-200 to-slate-200 lg:block" />
+                    <div className="hidden h-px flex-1 bg-gradient-to-r from-blue-200 to-slate-200 lg:-mr-6 lg:block" />
                   )}
                 </div>
                 <h3 className="text-[16px] font-semibold text-slate-900">
