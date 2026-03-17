@@ -51,7 +51,7 @@ export function CTA() {
               <div className="flex flex-col gap-3 pt-2 sm:flex-row">
                 <a
                   href="#cta-form"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#5B5BD6] px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-[#5B5BD6]/20 transition-all hover:bg-[#4B4BC0]"
                 >
                   {finalCta.cta1}
                   <ArrowRight className="size-4" />
@@ -102,7 +102,7 @@ export function CTA() {
                       {form.title}
                     </h3>
                     <p className="text-[13px] text-slate-500">
-                      Заполните форму, и мы свяжемся для демо.
+                      {form.subtitle}
                     </p>
                   </div>
 
@@ -111,31 +111,31 @@ export function CTA() {
                       name="name"
                       placeholder={form.fields.name}
                       required
-                      className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-[#5B5BD6] focus:ring-2 focus:ring-[#5B5BD6]/20"
                     />
                     <Input
                       name="company"
                       placeholder={form.fields.company}
                       required
-                      className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-[#5B5BD6] focus:ring-2 focus:ring-[#5B5BD6]/20"
                     />
                   </div>
                   <Input
                     name="contact"
                     placeholder={form.fields.contact}
                     required
-                    className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-[#5B5BD6] focus:ring-2 focus:ring-[#5B5BD6]/20"
                   />
                   <Input
                     name="website"
                     placeholder={form.fields.website}
-                    className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    className="h-11 border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-[#5B5BD6] focus:ring-2 focus:ring-[#5B5BD6]/20"
                   />
                   <Textarea
                     name="comment"
                     placeholder={form.fields.comment}
                     rows={3}
-                    className="border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    className="border-slate-200 bg-white text-[14px] shadow-sm placeholder:text-slate-400 focus:border-[#5B5BD6] focus:ring-2 focus:ring-[#5B5BD6]/20"
                   />
 
                   <button

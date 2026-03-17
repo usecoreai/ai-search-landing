@@ -12,7 +12,7 @@ function ChatDemo() {
   return (
     <div className="mt-4 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/50">
       <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-2.5">
-        <MessageSquare className="size-3.5 text-violet-500" />
+        <MessageSquare className="size-3.5 text-[#5B5BD6]" />
         <span className="text-[11px] font-semibold text-slate-500">AI-ассистент</span>
       </div>
       <div className="flex flex-col gap-2.5 p-4">
@@ -28,7 +28,7 @@ function ChatDemo() {
             <div
               className={`max-w-[85%] rounded-2xl px-3.5 py-2 text-[12px] leading-relaxed ${
                 m.role === "user"
-                  ? "rounded-br-md bg-blue-600 text-white"
+                  ? "rounded-br-md bg-[#5B5BD6] text-white"
                   : "rounded-bl-md border border-slate-200 bg-white text-slate-700"
               }`}
             >
@@ -41,7 +41,7 @@ function ChatDemo() {
         <div className="flex-1 rounded-lg bg-white px-3 py-1.5 text-[11px] text-slate-400 ring-1 ring-slate-200">
           Напишите, что ищете...
         </div>
-        <div className="flex size-7 items-center justify-center rounded-lg bg-blue-600">
+        <div className="flex size-7 items-center justify-center rounded-lg bg-[#5B5BD6]">
           <Send className="size-3 text-white" />
         </div>
       </div>
@@ -67,16 +67,16 @@ function SearchDemo() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
-            className="flex items-center gap-2.5 rounded-lg border border-slate-100 bg-white px-3 py-2 transition-colors hover:border-blue-200"
+            className="flex items-center gap-2.5 rounded-lg border border-slate-100 bg-white px-3 py-2 transition-colors hover:border-[#5B5BD6]/20"
           >
-            <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-blue-50">
-              <Package className="size-3.5 text-blue-500" />
+            <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08]">
+              <Package className="size-3.5 text-[#5B5BD6]" />
             </div>
             <span className="flex-1 truncate text-[12px] text-slate-700">{r}</span>
-            <Check className="size-3 shrink-0 text-emerald-500" />
+            <Check className="size-3 shrink-0 text-[#1E9A6E]" />
           </motion.div>
         ))}
-        <p className="pt-1 text-center text-[10px] font-medium text-emerald-600">
+        <p className="pt-1 text-center text-[10px] font-medium text-[#1E9A6E]">
           0.04s — {results.length} результата
         </p>
       </div>
@@ -102,8 +102,8 @@ export function IntegrationModes() {
         <div className="grid gap-6 md:grid-cols-2">
           <FadeIn delay={0.1} className="h-full">
             <div className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-7">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-violet-50">
-                <MessageSquare className="size-5 text-violet-600" />
+              <div className="flex size-11 items-center justify-center rounded-xl bg-[#5B5BD6]/[0.08]">
+                <MessageSquare className="size-5 text-[#5B5BD6]" />
               </div>
               <h3 className="mt-4 text-[18px] font-semibold tracking-tight text-slate-900">
                 {integrationModes.assistant.title}
@@ -117,8 +117,8 @@ export function IntegrationModes() {
 
           <FadeIn delay={0.2} className="h-full">
             <div className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-7">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-blue-50">
-                <Search className="size-5 text-blue-600" />
+              <div className="flex size-11 items-center justify-center rounded-xl bg-[#5B5BD6]/[0.08]">
+                <Search className="size-5 text-[#5B5BD6]" />
               </div>
               <h3 className="mt-4 text-[18px] font-semibold tracking-tight text-slate-900">
                 {integrationModes.widget.title}
@@ -130,6 +130,12 @@ export function IntegrationModes() {
             </div>
           </FadeIn>
         </div>
+
+        <FadeIn delay={0.3}>
+          <p className="mt-8 text-center text-[14px] text-[#6F6A63]">
+            {integrationModes.footer}
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

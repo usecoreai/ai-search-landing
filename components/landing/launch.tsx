@@ -19,7 +19,7 @@ export function Launch() {
           {launchSteps.steps.map((step, i) => (
             <FadeIn key={step.number} delay={i * 0.1}>
               <div className="flex flex-col gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl bg-blue-600 text-[13px] font-bold text-white">
+                <span className="flex size-10 items-center justify-center rounded-xl bg-[#5B5BD6] text-[13px] font-bold text-white">
                   {step.number}
                 </span>
                 <h3 className="text-[15px] font-semibold text-slate-900">

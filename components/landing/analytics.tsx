@@ -86,10 +86,10 @@ function InsightPanel() {
                 <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">{q.instead}</p>
               </div>
 
-              <div className="rounded-lg border border-blue-500/20 bg-blue-500/[0.07] p-3">
+              <div className="rounded-lg border border-[#C88629]/25 bg-[#C88629]/[0.07] p-3">
                 <div className="flex items-center gap-2">
-                  <Package className="size-3.5 text-blue-400" />
-                  <span className="text-[10px] font-semibold tracking-wider text-blue-400/80 uppercase">
+                  <Package className="size-3.5 text-[#C88629]" />
+                  <span className="text-[10px] font-semibold tracking-wider text-[#C88629]/80 uppercase">
                     Что стоит завезти
                   </span>
                 </div>
@@ -112,7 +112,7 @@ export function Analytics() {
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
           <FadeIn>
             <div className="flex flex-col gap-6">
-              <span className="w-fit rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-1.5 text-[13px] font-medium text-blue-300">
+              <span className="w-fit rounded-full border border-[#C88629]/25 bg-[#C88629]/10 px-4 py-1.5 text-[13px] font-medium text-[#C88629]">
                 {analytics.eyebrow}
               </span>
 
@@ -127,7 +127,7 @@ export function Analytics() {
               <ul className="flex flex-col gap-2.5 pt-2">
                 {analytics.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2.5 text-[14px] text-slate-300">
-                    <Check className="mt-0.5 size-4 shrink-0 text-blue-400" />
+                    <Check className="mt-0.5 size-4 shrink-0 text-[#C88629]" />
                     <span>{b}</span>
                   </li>
                 ))}

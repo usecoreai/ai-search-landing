@@ -85,7 +85,7 @@ export function DemoTabs() {
             >
               {i === activeTab && (
                 <motion.span
-                  className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-blue-500"
+                  className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-[#5B5BD6]"
                   style={{ scaleX: progress }}
                 />
               )}
@@ -171,16 +171,11 @@ export function DemoTabs() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-blue-600">
-                {BRAND_NAME}
-              </span>
-              <span className="rounded-full bg-blue-100 px-1.5 py-0.5 text-[9px] font-bold text-blue-700">
-                AI
-              </span>
-            </div>
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[#5B5BD6]">
+              {BRAND_NAME}
+            </span>
 
-            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-blue-100 bg-white p-3 shadow-[0_4px_12px_-4px_rgba(37,99,235,0.1)] ring-2 ring-blue-500/5">
+            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-[#5B5BD6]/15 bg-white p-3 shadow-[0_4px_12px_-4px_rgba(91,91,214,0.1)] ring-2 ring-[#5B5BD6]/5">
               {scenario.aiResults.items.map((item, i) => (
                 <motion.div
                   key={i}
@@ -191,7 +186,7 @@ export function DemoTabs() {
                     delay: 0.5 + i * 0.15,
                     ease: [0.21, 0.47, 0.32, 0.98],
                   }}
-                  className="group flex items-start gap-3 rounded-lg border border-slate-100 bg-gradient-to-br from-white to-slate-50/50 p-2.5 transition-all hover:border-blue-200 hover:shadow-sm"
+                  className="group flex items-start gap-3 rounded-lg border border-slate-100 bg-white p-2.5 transition-all hover:border-[#5B5BD6]/20 hover:shadow-sm"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -202,19 +197,19 @@ export function DemoTabs() {
                       damping: 15,
                       delay: 0.7 + i * 0.15,
                     }}
-                    className="flex size-8 shrink-0 items-center justify-center rounded-md bg-blue-50 text-blue-600 ring-1 ring-blue-100"
+                    className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08] text-[#5B5BD6] ring-1 ring-[#5B5BD6]/15"
                   >
                     <Package className="size-4" />
                   </motion.div>
                   <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span className="truncate text-xs font-medium text-slate-900 group-hover:text-blue-700">
+                    <span className="truncate text-xs font-medium text-slate-900 group-hover:text-[#5B5BD6]">
                       {item}
                     </span>
                     <motion.span
                       initial={{ opacity: 0, x: -4 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.9 + i * 0.15 }}
-                      className="flex items-center gap-1 text-[10px] font-medium text-emerald-600"
+                      className="flex items-center gap-1 text-[10px] font-medium text-[#1E9A6E]"
                     >
                       <Check className="size-2.5" />
                       Релевантно
@@ -230,14 +225,14 @@ export function DemoTabs() {
                 transition={{ delay: 1.2 }}
                 className="mt-auto flex items-center justify-between border-t border-slate-100 pt-2 text-[10px]"
               >
-                <span className="font-medium text-slate-500">
-                  Время поиска: 0.04s
+                <span className="text-slate-400">
+                  0.04s
                 </span>
                 <motion.span
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.3, type: "spring", stiffness: 300 }}
-                  className="rounded-full bg-emerald-50 px-2 py-0.5 font-bold text-emerald-600 ring-1 ring-emerald-200/50"
+                  className="rounded-full bg-[#1E9A6E]/10 px-2 py-0.5 font-bold text-[#1E9A6E] ring-1 ring-[#1E9A6E]/20"
                 >
                   {scenario.aiResults.status}
                 </motion.span>
