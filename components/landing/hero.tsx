@@ -36,7 +36,7 @@ export function Hero() {
                 <ArrowRight className="size-4" />
               </a>
               <a
-                href="#solutions"
+                href="#scenarios"
                 className="inline-flex items-center justify-center rounded-full border border-[#151515]/[0.08] bg-white px-7 py-3.5 text-[15px] font-medium text-[#151515] transition-all hover:bg-[#F5F1EA]"
               >
                 {hero.cta2}
