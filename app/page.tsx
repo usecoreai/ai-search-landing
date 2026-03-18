@@ -12,7 +12,7 @@ import { Footer } from "@/components/landing/footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full overflow-x-hidden">
       <Header />
       <main>
         <Hero />
@@ -26,6 +26,6 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

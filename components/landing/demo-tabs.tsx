@@ -61,7 +61,7 @@ export function DemoTabs() {
     <div
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="relative isolate overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.02)] backdrop-blur-xl ring-1 ring-white/50"
+      className="relative isolate overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg sm:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)]"
     >
       <div className="flex items-center justify-between gap-2 border-b border-slate-100 bg-white/50 px-3 py-2.5 sm:px-4 sm:py-3">
         <div className="hidden items-center gap-2 sm:flex">
@@ -175,7 +175,7 @@ export function DemoTabs() {
               {BRAND_NAME}
             </span>
 
-            <div className="flex min-h-[120px] flex-col gap-2 rounded-xl border border-[#5B5BD6]/15 bg-white p-3 shadow-[0_4px_12px_-4px_rgba(91,91,214,0.1)] ring-2 ring-[#5B5BD6]/5 sm:min-h-[160px]">
+            <div className="flex flex-col gap-2 rounded-xl border border-[#5B5BD6]/15 bg-white p-2.5 sm:min-h-[160px] sm:p-3">
               {scenario.aiResults.items.map((item, i) => (
                 <motion.div
                   key={i}
@@ -186,7 +186,7 @@ export function DemoTabs() {
                     delay: 0.5 + i * 0.15,
                     ease: [0.21, 0.47, 0.32, 0.98],
                   }}
-                  className="group flex items-start gap-3 rounded-lg border border-slate-100 bg-white p-2.5 transition-all hover:border-[#5B5BD6]/20 hover:shadow-sm"
+                  className="group flex items-start gap-2 rounded-lg border border-slate-100 bg-white p-2 sm:gap-3 sm:p-2.5"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -197,12 +197,12 @@ export function DemoTabs() {
                       damping: 15,
                       delay: 0.7 + i * 0.15,
                     }}
-                    className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08] text-[#5B5BD6] ring-1 ring-[#5B5BD6]/15"
+                    className="hidden size-8 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08] text-[#5B5BD6] sm:flex"
                   >
                     <Package className="size-4" />
                   </motion.div>
                   <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span className="truncate text-xs font-medium text-slate-900 group-hover:text-[#5B5BD6]">
+                    <span className="text-[11px] leading-snug font-medium text-slate-900 sm:text-xs">
                       {item}
                     </span>
                     <motion.span
@@ -223,7 +223,7 @@ export function DemoTabs() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
-                className="mt-auto flex items-center justify-between border-t border-slate-100 pt-2 text-[10px]"
+                className="mt-auto flex flex-wrap items-center justify-between gap-1 border-t border-slate-100 pt-2 text-[9px] sm:text-[10px]"
               >
                 <span className="text-slate-400">
                   0.04s
