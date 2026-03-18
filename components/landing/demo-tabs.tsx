@@ -95,9 +95,9 @@ export function DemoTabs() {
         </div>
       </div>
 
-      <div className="border-b border-slate-100 bg-white/30 px-4 py-3">
-        <div className="group flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-sm transition-all focus-within:border-blue-500/30 focus-within:ring-4 focus-within:ring-blue-500/10">
-          <Search className="size-4 text-slate-400 group-focus-within:text-blue-500" />
+      <div className="border-b border-slate-100 bg-white/30 px-3 py-2.5 sm:px-4 sm:py-3">
+        <div className="group flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-3.5 sm:py-2.5">
+          <Search className="size-3.5 shrink-0 text-slate-400 sm:size-4" />
           <AnimatePresence mode="wait">
             <motion.span
               key={activeTab}
@@ -105,7 +105,7 @@ export function DemoTabs() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -4 }}
               transition={{ duration: 0.15 }}
-              className="text-sm font-medium text-slate-900"
+              className="text-[13px] font-medium text-slate-900 sm:text-sm"
             >
               {scenario.query}
             </motion.span>
@@ -122,11 +122,11 @@ export function DemoTabs() {
           transition={{ duration: 0.2 }}
           className="grid gap-3 bg-slate-50/50 px-3 py-3 sm:grid-cols-2 sm:gap-4 sm:px-4 sm:py-4"
         >
-          <div className="flex flex-col gap-2">
+          <div className="hidden flex-col gap-2 sm:flex">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
               Обычный поиск
             </span>
-            <div className="flex min-h-[120px] flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm sm:min-h-[160px]">
+            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm">
               {scenario.oldResults.items.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}

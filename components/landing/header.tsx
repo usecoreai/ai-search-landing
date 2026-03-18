@@ -32,8 +32,8 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5 lg:px-8">
-        <a href="#" className="text-[17px] font-semibold tracking-tight text-slate-900">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-[72px] sm:px-5 lg:px-8">
+        <a href="#" className="text-[15px] font-semibold tracking-tight text-slate-900 sm:text-[17px]">
           {BRAND_NAME}
         </a>
 

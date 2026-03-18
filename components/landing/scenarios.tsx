@@ -151,11 +151,11 @@ export function Scenarios() {
   const scenario = mode === "search" ? data.search : data.assistant;
 
   return (
-    <section id="scenarios" className="scroll-mt-20 bg-slate-50/50 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+    <section id="scenarios" className="scroll-mt-16 bg-slate-50/50 py-16 sm:scroll-mt-20 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 lg:px-8">
         <FadeIn>
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <h2 className="text-[1.5rem] font-bold tracking-tight text-slate-900 sm:text-[1.75rem]">
+            <h2 className="text-[1.25rem] font-bold tracking-tight text-slate-900 sm:text-[1.75rem]">
               Один движок, два формата и разные сценарии применения
             </h2>
             <p className="mt-4 text-[14px] leading-relaxed text-[#6F6A63] sm:text-[15px]">
@@ -166,7 +166,7 @@ export function Scenarios() {
 
         <FadeIn delay={0.1}>
           <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg shadow-slate-200/30">
-            <div className="flex flex-col gap-3 border-b border-slate-100 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <div className="flex flex-col gap-2.5 border-b border-slate-100 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-6 sm:py-4">
               <div className="flex gap-1 rounded-lg bg-slate-100 p-1">
                 {modes.map((m) => {
                   const Icon = m.icon;
@@ -175,7 +175,7 @@ export function Scenarios() {
                       key={m.id}
                       onClick={() => setMode(m.id)}
                       className={cn(
-                        "flex items-center gap-1.5 rounded-md px-3.5 py-2 text-[13px] font-medium transition-all",
+                        "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-medium transition-all sm:px-3.5 sm:py-2 sm:text-[13px]",
                         mode === m.id
                           ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200"
                           : "text-slate-500 hover:text-slate-700"
@@ -213,9 +213,8 @@ export function Scenarios() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
               >
-                <div className="grid gap-px bg-slate-100 lg:grid-cols-3">
-                  {/* Zone 1: User query */}
-                  <div className="bg-white p-5">
+                <div className="grid gap-px bg-slate-100 md:grid-cols-3">
+                  <div className="bg-white p-4 sm:p-5">
                     <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
                       Что спрашивает пользователь
                     </span>
@@ -240,8 +239,7 @@ export function Scenarios() {
                     </div>
                   </div>
 
-                  {/* Zone 2: How CoreAI understands */}
-                  <div className="bg-white p-5">
+                  <div className="bg-white p-4 sm:p-5">
                     <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
                       Как CoreAI понимает запрос
                     </span>
@@ -250,8 +248,7 @@ export function Scenarios() {
                     </div>
                   </div>
 
-                  {/* Zone 3: How it maps to catalog */}
-                  <div className="bg-white p-5">
+                  <div className="bg-white p-4 sm:p-5">
                     <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
                       Как приземляется на ассортимент
                     </span>
@@ -280,12 +277,12 @@ export function Scenarios() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex items-center justify-center gap-2 border-t border-slate-100 bg-slate-50/30 px-5 py-3">
-              <span className="text-[11px] text-slate-400">Язык пользователя</span>
-              <ArrowRight className="size-3 text-slate-300" />
-              <span className="text-[11px] text-slate-400">Язык каталога</span>
-              <ArrowRight className="size-3 text-slate-300" />
-              <span className="text-[11px] font-medium text-[#5B5BD6]">Релевантные товары</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-slate-100 bg-slate-50/30 px-3 py-2.5 sm:px-5 sm:py-3">
+              <span className="text-[10px] text-slate-400 sm:text-[11px]">Язык пользователя</span>
+              <ArrowRight className="size-3 shrink-0 text-slate-300" />
+              <span className="text-[10px] text-slate-400 sm:text-[11px]">Язык каталога</span>
+              <ArrowRight className="size-3 shrink-0 text-slate-300" />
+              <span className="text-[10px] font-medium text-[#5B5BD6] sm:text-[11px]">Релевантные товары</span>
             </div>
           </div>
         </FadeIn>
