@@ -122,11 +122,11 @@ export function DemoTabs() {
           transition={{ duration: 0.2 }}
           className="grid gap-3 bg-slate-50/50 px-3 py-3 sm:grid-cols-2 sm:gap-4 sm:px-4 sm:py-4"
         >
-          <div className="hidden flex-col gap-2 sm:flex">
+          <div className="flex flex-col gap-2">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
               Обычный поиск
             </span>
-            <div className="flex min-h-[160px] flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm">
+            <div className="flex flex-col gap-2 rounded-xl border border-slate-200/60 bg-white p-3 shadow-sm sm:min-h-[160px]">
               {scenario.oldResults.items.length === 0 ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
