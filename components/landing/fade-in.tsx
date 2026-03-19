@@ -1,41 +1,53 @@
 "use client";
 
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-interface FadeInProps extends HTMLMotionProps<"div"> {
+interface FadeInProps {
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
-  children: React.ReactNode;
+  children: ReactNode;
+  className?: string;
 }
-
-const directionMap = {
-  up: { y: 20, x: 0 },
-  down: { y: -20, x: 0 },
-  left: { x: 20, y: 0 },
-  right: { x: -20, y: 0 },
-  none: { x: 0, y: 0 },
-};
 
 export function FadeIn({
   children,
   delay = 0,
   direction = "up",
   className,
-  ...props
 }: FadeInProps) {
-  const offset = directionMap[direction];
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.transitionDelay = `${delay}s`;
+          el.classList.add("fade-in-visible");
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-40px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+
+  const dirClass = {
+    up: "fade-in-up",
+    down: "fade-in-down",
+    left: "fade-in-left",
+    right: "fade-in-right",
+    none: "fade-in-none",
+  }[direction];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, ...offset }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={cn(className)}
-      {...props}
-    >
+    <div ref={ref} className={cn("fade-in", dirClass, className)}>
       {children}
-    </motion.div>
+    </div>
   );
 }

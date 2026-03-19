@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { scenarios, verticals, type Mode, type Vertical } from "@/content/landing-content";
 import { cn } from "@/lib/utils";
-import { Search, MessageSquare, Package, Check, ArrowRight, Send } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Search, MessageSquare, Package, Check, ArrowRight } from "lucide-react";
 import { FadeIn } from "./fade-in";
 
 const modes: { id: Mode; label: string; icon: typeof Search }[] = [
@@ -26,16 +25,8 @@ function IntentChips({ intent }: { intent: { category: string; attributes: strin
       <div>
         <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Атрибуты</span>
         <div className="mt-1.5 flex flex-wrap gap-1.5">
-          {intent.attributes.map((a, i) => (
-            <motion.span
-              key={a}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 + i * 0.08 }}
-              className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600"
-            >
-              {a}
-            </motion.span>
+          {intent.attributes.map((a) => (
+            <span key={a} className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">{a}</span>
           ))}
         </div>
       </div>
@@ -43,16 +34,8 @@ function IntentChips({ intent }: { intent: { category: string; attributes: strin
         <div>
           <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Ограничения</span>
           <div className="mt-1.5 flex flex-wrap gap-1.5">
-            {intent.constraints.map((c, i) => (
-              <motion.span
-                key={c}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.08 }}
-                className="rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-medium text-amber-700"
-              >
-                {c}
-              </motion.span>
+            {intent.constraints.map((c) => (
+              <span key={c} className="rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-medium text-amber-700">{c}</span>
             ))}
           </div>
         </div>
@@ -65,80 +48,14 @@ function IntentChips({ intent }: { intent: { category: string; attributes: strin
   );
 }
 
-function SearchResults({ products, badges }: { products: string[]; badges: string[] }) {
+function ProductCard({ name }: { name: string }) {
   return (
-    <div className="flex flex-col gap-2">
-      {products.map((p, i) => (
-        <motion.div
-          key={p}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 + i * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="flex items-center gap-2.5 rounded-lg border border-slate-100 bg-white px-3 py-2.5"
-        >
-          <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08]">
-            <Package className="size-3.5 text-[#5B5BD6]" />
-          </div>
-          <span className="flex-1 truncate text-[12px] font-medium text-slate-800">{p}</span>
-          <Check className="size-3 shrink-0 text-[#1E9A6E]" />
-        </motion.div>
-      ))}
-      <div className="flex flex-wrap gap-1.5 pt-1">
-        {badges.map((b) => (
-          <span key={b} className="rounded-full bg-[#5B5BD6]/[0.06] px-2 py-0.5 text-[10px] font-medium text-[#5B5BD6]">
-            {b}
-          </span>
-        ))}
+    <div className="flex items-center gap-2 rounded-lg border border-slate-100 bg-white px-3 py-2.5">
+      <div className="hidden size-7 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08] sm:flex">
+        <Package className="size-3.5 text-[#5B5BD6]" />
       </div>
-    </div>
-  );
-}
-
-function AssistantChat({ messages, products, summary }: { messages: { role: string; text: string }[]; products: string[]; summary: string }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <div className="flex flex-col gap-2 rounded-xl border border-slate-100 bg-slate-50/50 p-3">
-        {messages.map((m, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 + i * 0.1 }}
-            className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            <div className={`max-w-[85%] rounded-2xl px-3 py-1.5 text-[11px] leading-relaxed ${
-              m.role === "user"
-                ? "rounded-br-md bg-[#5B5BD6] text-white"
-                : "rounded-bl-md border border-slate-200 bg-white text-slate-700"
-            }`}>
-              {m.text}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="text-[11px] font-medium text-[#1E9A6E]"
-      >
-        {summary}
-      </motion.p>
-      {products.map((p, i) => (
-        <motion.div
-          key={p}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 + i * 0.1 }}
-          className="flex items-center gap-2.5 rounded-lg border border-slate-100 bg-white px-3 py-2.5"
-        >
-          <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08]">
-            <Package className="size-3.5 text-[#5B5BD6]" />
-          </div>
-          <span className="flex-1 truncate text-[12px] font-medium text-slate-800">{p}</span>
-          <Check className="size-3 shrink-0 text-[#1E9A6E]" />
-        </motion.div>
-      ))}
+      <span className="min-w-0 flex-1 text-[11px] font-medium leading-snug text-slate-800 sm:text-[12px]">{name}</span>
+      <Check className="size-3 shrink-0 text-[#1E9A6E]" />
     </div>
   );
 }
@@ -158,14 +75,14 @@ export function Scenarios() {
             <h2 className="text-[1.25rem] font-bold tracking-tight text-slate-900 sm:text-[1.75rem]">
               Один движок, два формата и разные сценарии применения
             </h2>
-            <p className="mt-4 text-[14px] leading-relaxed text-[#6F6A63] sm:text-[15px]">
+            <p className="mt-4 text-[13px] leading-relaxed text-[#6F6A63] sm:text-[15px]">
               Переключайте формат и отрасль, чтобы увидеть, как CoreAI переводит естественный запрос пользователя в атрибуты каталога и релевантные товары.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg shadow-slate-200/30">
+          <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg">
             <div className="flex flex-col gap-2.5 border-b border-slate-100 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-6 sm:py-4">
               <div className="flex gap-1 rounded-lg bg-slate-100 p-1">
                 {modes.map((m) => {
@@ -177,7 +94,7 @@ export function Scenarios() {
                       className={cn(
                         "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-medium transition-all sm:px-3.5 sm:py-2 sm:text-[13px]",
                         mode === m.id
-                          ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200"
+                          ? "bg-white text-slate-900 shadow-sm"
                           : "text-slate-500 hover:text-slate-700"
                       )}
                     >
@@ -205,77 +122,83 @@ export function Scenarios() {
               </div>
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${mode}-${vertical}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-              >
-                <div className="grid gap-px bg-slate-100 md:grid-cols-3">
-                  <div className="bg-white p-4 sm:p-5">
-                    <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
-                      Что спрашивает пользователь
-                    </span>
-                    <div className="mt-3">
-                      {mode === "search" ? (
-                        <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-3">
-                          <Search className="mt-0.5 size-4 shrink-0 text-slate-400" />
-                          <span className="text-[13px] leading-relaxed text-slate-800">
-                            {(scenario as typeof data.search).query}
-                          </span>
-                        </div>
-                      ) : (
-                        <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-3">
-                          <div className="flex items-start gap-2">
-                            <MessageSquare className="mt-0.5 size-4 shrink-0 text-[#5B5BD6]" />
-                            <span className="text-[13px] leading-relaxed text-slate-800">
-                              {(scenario as typeof data.assistant).messages[0].text}
-                            </span>
+            <div key={`${mode}-${vertical}`} className="tab-enter grid gap-px bg-slate-100 md:grid-cols-3">
+              <div className="bg-white p-4 sm:p-5">
+                <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
+                  Что спрашивает пользователь
+                </span>
+                <div className="mt-3">
+                  {mode === "search" ? (
+                    <div className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/50 px-3 py-2.5 sm:px-3.5 sm:py-3">
+                      <Search className="mt-0.5 size-4 shrink-0 text-slate-400" />
+                      <span className="text-[12px] leading-relaxed text-slate-800 sm:text-[13px]">
+                        {(scenario as typeof data.search).query}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-3">
+                      <div className="flex items-start gap-2">
+                        <MessageSquare className="mt-0.5 size-4 shrink-0 text-[#5B5BD6]" />
+                        <span className="text-[12px] leading-relaxed text-slate-800 sm:text-[13px]">
+                          {(scenario as typeof data.assistant).messages[0].text}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="bg-white p-4 sm:p-5">
+                <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
+                  Как CoreAI понимает запрос
+                </span>
+                <div className="mt-3">
+                  <IntentChips intent={scenario.intent} />
+                </div>
+              </div>
+
+              <div className="bg-white p-4 sm:p-5">
+                <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
+                  Как приземляется на ассортимент
+                </span>
+                <div className="mt-3 flex flex-col gap-2">
+                  {mode === "assistant" && (
+                    <>
+                      <div className="flex flex-col gap-1.5 rounded-xl border border-slate-100 bg-slate-50/50 p-2.5">
+                        {(scenario as typeof data.assistant).messages.map((m, i) => (
+                          <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+                            <div className={`max-w-[88%] rounded-2xl px-2.5 py-1 text-[10px] leading-relaxed sm:text-[11px] ${
+                              m.role === "user"
+                                ? "rounded-br-md bg-[#5B5BD6] text-white"
+                                : "rounded-bl-md border border-slate-200 bg-white text-slate-700"
+                            }`}>
+                              {m.text}
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        ))}
+                      </div>
+                      <p className="text-[10px] font-medium text-[#1E9A6E] sm:text-[11px]">
+                        {(scenario as typeof data.assistant).summary}
+                      </p>
+                    </>
+                  )}
+                  {scenario.products.map((p) => (
+                    <ProductCard key={p} name={p} />
+                  ))}
+                  {mode === "search" && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {(scenario as typeof data.search).badges.map((b) => (
+                        <span key={b} className="rounded-full bg-[#5B5BD6]/[0.06] px-2 py-0.5 text-[10px] font-medium text-[#5B5BD6]">{b}</span>
+                      ))}
                     </div>
-                  </div>
-
-                  <div className="bg-white p-4 sm:p-5">
-                    <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
-                      Как CoreAI понимает запрос
-                    </span>
-                    <div className="mt-3">
-                      <IntentChips intent={scenario.intent} />
-                    </div>
-                  </div>
-
-                  <div className="bg-white p-4 sm:p-5">
-                    <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
-                      Как приземляется на ассортимент
-                    </span>
-                    <div className="mt-3">
-                      {mode === "search" ? (
-                        <SearchResults
-                          products={scenario.products}
-                          badges={(scenario as typeof data.search).badges}
-                        />
-                      ) : (
-                        <AssistantChat
-                          messages={(scenario as typeof data.assistant).messages}
-                          products={scenario.products}
-                          summary={(scenario as typeof data.assistant).summary}
-                        />
-                      )}
-                    </div>
-                  </div>
+                  )}
                 </div>
+              </div>
+            </div>
 
-                <div className="border-t border-slate-100 px-5 py-3">
-                  <p className="text-[12px] leading-relaxed text-[#6F6A63]">
-                    {scenario.explanation}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+            <div className="border-t border-slate-100 px-4 py-2.5 sm:px-5 sm:py-3">
+              <p className="text-[11px] leading-relaxed text-[#6F6A63] sm:text-[12px]">{scenario.explanation}</p>
+            </div>
 
             <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-slate-100 bg-slate-50/30 px-3 py-2.5 sm:px-5 sm:py-3">
               <span className="text-[10px] text-slate-400 sm:text-[11px]">Язык пользователя</span>

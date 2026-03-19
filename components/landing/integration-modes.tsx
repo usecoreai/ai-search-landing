@@ -3,7 +3,6 @@
 import { landingContent } from "@/content/landing-content";
 import { FadeIn } from "./fade-in";
 import { MessageSquare, Search, Check, Package, Send } from "lucide-react";
-import { motion } from "framer-motion";
 
 const { integrationModes } = landingContent;
 
@@ -17,24 +16,15 @@ function ChatDemo() {
       </div>
       <div className="flex flex-col gap-2 p-3">
         {msgs.map((m, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 6 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 + i * 0.12, duration: 0.35 }}
-            className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            <div
-              className={`max-w-[88%] rounded-2xl px-3 py-1.5 text-[11px] leading-relaxed sm:text-[12px] ${
-                m.role === "user"
-                  ? "rounded-br-md bg-[#5B5BD6] text-white"
-                  : "rounded-bl-md border border-slate-200 bg-white text-slate-700"
-              }`}
-            >
+          <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
+            <div className={`max-w-[88%] rounded-2xl px-3 py-1.5 text-[11px] leading-relaxed sm:text-[12px] ${
+              m.role === "user"
+                ? "rounded-br-md bg-[#5B5BD6] text-white"
+                : "rounded-bl-md border border-slate-200 bg-white text-slate-700"
+            }`}>
               {m.text}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
       <div className="flex items-center gap-2 border-t border-slate-100 px-3 py-2">
@@ -61,20 +51,13 @@ function SearchDemo() {
       </div>
       <div className="flex flex-col gap-1.5 p-2.5">
         {results.map((r, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -6 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
-            className="flex items-center gap-2 rounded-lg border border-slate-100 bg-white px-2.5 py-2"
-          >
-            <div className="flex size-6 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08]">
+          <div key={i} className="flex items-center gap-2 rounded-lg border border-slate-100 bg-white px-2.5 py-2">
+            <div className="hidden size-6 shrink-0 items-center justify-center rounded-md bg-[#5B5BD6]/[0.08] sm:flex">
               <Package className="size-3 text-[#5B5BD6]" />
             </div>
             <span className="min-w-0 flex-1 text-[11px] leading-snug text-slate-700 sm:text-[12px]">{r}</span>
             <Check className="size-3 shrink-0 text-[#1E9A6E]" />
-          </motion.div>
+          </div>
         ))}
         <p className="pt-1 text-center text-[10px] font-medium text-[#1E9A6E]">
           0.04s — {results.length} результата
