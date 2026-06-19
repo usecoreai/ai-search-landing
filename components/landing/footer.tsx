@@ -10,7 +10,7 @@ export function Footer() {
           <span className="text-[15px] font-semibold text-slate-900">
             {BRAND_NAME}
           </span>
-          <nav className="flex gap-5">
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             {nav.links.map((link) => (
               <a
                 key={link.href}
@@ -20,6 +20,22 @@ export function Footer() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://www.core-ai.ru/privacy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[14px] text-slate-400 transition-colors hover:text-slate-700"
+            >
+              Конфиденциальность
+            </a>
+            <a
+              href="https://www.core-ai.ru/policy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[14px] text-slate-400 transition-colors hover:text-slate-700"
+            >
+              Политика обработки данных
+            </a>
           </nav>
         </div>
         <span className="text-[13px] text-slate-400">
